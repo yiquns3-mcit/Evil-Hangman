@@ -1,22 +1,43 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class EvilSolution {
 
-    private String keyBest = "";
+    private String target;
+    private String keyBest;
     private ArrayList<String> candidateList;
     private HashMap<String, ArrayList<String>> candidateMap;
     private ArrayList<Character> partialSolution;
     private int missingChars;
 
     public EvilSolution(ArrayList<String> wordList) {
-        this.candidateList = wordList;
-        missingChars = wordList.get(0).length();
+        // pick random word from the given wordlist
+        int randomIndex = new Random().nextInt(wordList.size());
+        target = wordList.get(randomIndex);
+        // set the length = the length of that random word
+        int len = target.length();
+        // build up a new word list including words with the same length = len
+        ArrayList<String> targetWordList = new ArrayList<>();
+        for (String word : wordList){
+            if (word.length() == len){
+                targetWordList.add(word);
+            }
+        }
+        // set up the candidates list
+        this.candidateList = targetWordList;
+        // build the UI
+        missingChars = targetWordList.get(0).length();
         partialSolution = new ArrayList<>(missingChars);
         for (int i = 0; i < missingChars; i++) {
             partialSolution.add('_');
-            this.keyBest = keyBest + "-";
         }
+        // initialize the best key (consist of "-")
+        keyBest = "";
+        for (int i = 0; i < missingChars; i++) {
+            keyBest = keyBest + "-";
+        }
+        this.target = keyBest;
     }
 
     public boolean isSolved() {

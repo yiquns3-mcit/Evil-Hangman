@@ -31,19 +31,22 @@ public class EvilHangman {
 
         previousGuesses = new HashSet<>();
         incorrectGuesses = new TreeSet<>();
-        int randomIndex = new Random().nextInt(wordList.size());
-        String target = wordList.get(randomIndex);
 
-        // set the length = the length of a random word
-        int len = target.length();
-        // build up a new word list including words with the same length = len
-        ArrayList<String> targetWordList = new ArrayList<>();
-        for (String word : wordList){
-            if (word.length() == len){
-                targetWordList.add(word);
-            }
-        }
-        solution = new EvilSolution(targetWordList);
+//        randomization step: move to the EvilSolution
+//        int randomIndex = new Random().nextInt(wordList.size());
+//        String target = wordList.get(randomIndex);
+//
+//        // set the length = the length of a random word
+//        int len = target.length();
+//        // build up a new word list including words with the same length = len
+//        ArrayList<String> targetWordList = new ArrayList<>();
+//        for (String word : wordList){
+//            if (word.length() == len){
+//                targetWordList.add(word);
+//            }
+//        }
+
+        solution = new EvilSolution(wordList);
         inputReader = new Scanner(System.in);
 
     }
