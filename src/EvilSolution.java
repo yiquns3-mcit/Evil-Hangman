@@ -38,11 +38,11 @@ public class EvilSolution {
         updateAll();
 
         // check: for each guess => updated hashmap and candidate list
-        System.out.println("guess Char: [" + guess + "]");
-        check();
-        System.out.println("Best Key: [" + keyBest + "]");
-        System.out.println("candidate list: " + candidateList);
-        System.out.println();
+//        System.out.println("guess Char: [" + guess + "]");
+//        check();
+//        System.out.println("Best Key: [" + keyBest + "]");
+//        System.out.println("candidate list: " + candidateList);
+//        System.out.println();
 
         // step3 update the demonstration part
         boolean guessCorrect = false;
