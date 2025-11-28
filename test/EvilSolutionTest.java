@@ -51,42 +51,50 @@ class EvilSolutionTest {
         // round 1
         char guess = 'a';
         boolean guessCorrect = test.addGuess(guess);
-        assertEquals("--a-", test.getBestKey());
+        String bestKey = test.getBestKey();
+        assertEquals("--a-", bestKey);
         assertTrue(guessCorrect);
         // round 2
         guess = 'b';
         guessCorrect = test.addGuess(guess);
-        assertEquals("--a-", test.getBestKey());
+        bestKey = test.getBestKey();
+        assertEquals("--a-", bestKey);
         assertFalse(guessCorrect);
         // round 3
         guess = 'e';
         guessCorrect = test.addGuess(guess);
-        assertEquals("-ea-", test.getBestKey());
+        bestKey = test.getBestKey();
+        assertEquals("-ea-", bestKey);
         assertTrue(guessCorrect);
         // round 4
         guess = 't';
         guessCorrect = test.addGuess(guess);
-        assertEquals("-ea-", test.getBestKey());
+        bestKey = test.getBestKey();
+        assertEquals("-ea-", bestKey);
         assertFalse(guessCorrect);
         // round 5
         guess = 'l';
         guessCorrect = test.addGuess(guess);
-        assertEquals("-eal", test.getBestKey());
+        bestKey = test.getBestKey();
+        assertEquals("-eal", bestKey);
         assertTrue(guessCorrect);
         // round 6
         guess = 's';
         guessCorrect = test.addGuess(guess);
-        assertEquals("-eal", test.getBestKey());
+        bestKey = test.getBestKey();
+        assertEquals("-eal", bestKey);
         assertFalse(guessCorrect);
         // round 7
         guess = 'r';
         guessCorrect = test.addGuess(guess);
-        assertEquals("-eal", test.getBestKey());
+        bestKey = test.getBestKey();
+        assertEquals("-eal", bestKey);
         assertFalse(guessCorrect);
         // round 8
         guess = 'p';
         guessCorrect = test.addGuess(guess);
-        assertEquals("peal", test.getBestKey());
+        bestKey = test.getBestKey();
+        assertEquals("peal", bestKey);
         assertTrue(guessCorrect);
     }
 
