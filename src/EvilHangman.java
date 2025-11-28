@@ -34,7 +34,16 @@ public class EvilHangman {
         int randomIndex = new Random().nextInt(wordList.size());
         String target = wordList.get(randomIndex);
 
-        solution = new EvilSolution(target);
+        // set the length = the length of a random word
+        int len = target.length();
+        // build up a new word list including words with the same length = len
+        ArrayList<String> targetWordList = new ArrayList<>();
+        for (String word : wordList){
+            if (word.length() == len){
+                targetWordList.add(word);
+            }
+        }
+        solution = new EvilSolution(targetWordList);
         inputReader = new Scanner(System.in);
 
     }
