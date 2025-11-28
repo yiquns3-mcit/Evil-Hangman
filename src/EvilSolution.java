@@ -33,8 +33,17 @@ public class EvilSolution {
     public boolean addGuess(char guess) {
         // step1 build hashmap for guess
         buildMap(guess);
+
         // step2 update the best word structure with the most options
         updateAll();
+
+        // check: for each guess => updated hashmap and candidate list
+        System.out.println("guess Char: [" + guess + "]");
+        check();
+        System.out.println("Best Key: [" + keyBest + "]");
+        System.out.println("candidate list: " + candidateList);
+        System.out.println();
+
         // step3 update the demonstration part
         boolean guessCorrect = false;
         for (int i = 0; i < keyBest.length(); i++) {
@@ -51,6 +60,10 @@ public class EvilSolution {
         return candidateList.get(0);
     }
 
+    // get the best key: use in test file
+    public String getBestKey(){
+        return keyBest;
+    }
     // ===== Build A HashMap w/t Given Guess =====
 
     // use the user guessed char to form a HashMap (ex. "-e--" ---> ["heal", "belt"])
@@ -107,9 +120,39 @@ public class EvilSolution {
             if (keyMaxLen < arrLen) {
                 keyMaxLen = arrLen;
                 keyMax = key;
+            } else if (keyMaxLen == arrLen){
+                sameLenChoice(keyMax, key);
             }
         }
         this.keyBest = keyMax;
         this.candidateList = candidateMap.get(keyMax);
     }
+
+    // if the ArrLists of two keys have the same size => choose the key that has more "-" unknown part
+    private String sameLenChoice(String key1, String key2){
+        int count1 = 0;
+        int count2 = 0;
+        for (int i = 0; i < key1.length(); i++){
+            if (key1.charAt(i) == '-'){
+                count1++;
+            }
+            if (key2.charAt(i) == '-'){
+                count2++;
+            }
+        }
+        if (count1 >= count2){
+            return key1;
+        } else {
+            return key2;
+        }
+    }
+
+    // ===== CHECK =====
+    private void check(){
+        System.out.println("<Contents of the HashMap>:");
+        for (String key : candidateMap.keySet()) {
+            System.out.println("Key: [" + key + "] => " + candidateMap.get(key));
+        }
+    }
+
 }
