@@ -14,7 +14,7 @@ class EvilSolutionTest {
 
     public void EvilSolutionTest(){
         try {
-            this.wordList = dictionaryToList("test/testDic_EH.txt");
+            this.wordList = dictionaryToList("test/testDic.txt");
         } catch (IOException e) {
             System.out.println("Invalid wordlist");
         }

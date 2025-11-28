@@ -18,14 +18,9 @@ class EvilHangmanTest {
         PrintStream originalOutput = System.out;
 
         String input = "ae\na\nbc\nb\ne\nt\nl\ns\nr\np\n";
-        InputStream testInput = new ByteArrayInputStream(input.getBytes());
-        System.setIn(testInput);
+        OutputStream testOut = setupIO(input);
 
-        OutputStream testOut = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(testOut);
-        System.setOut(printStream);
-
-        EvilHangman test1 = new EvilHangman("test/testDic_EH.txt");
+        EvilHangman test1 = new EvilHangman("test/testDic.txt");
         test1.start();
 
         String output = testOut.toString();
@@ -43,14 +38,9 @@ class EvilHangmanTest {
         PrintStream originalOutput = System.out;
 
         String input = "a\na\nb\nb\ne\ne\nt\nl\ns\nr\np\n";
-        InputStream testInput = new ByteArrayInputStream(input.getBytes());
-        System.setIn(testInput);
+        OutputStream testOut = setupIO(input);
 
-        OutputStream testOut = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(testOut);
-        System.setOut(printStream);
-
-        EvilHangman test1 = new EvilHangman("test/testDic_EH.txt");
+        EvilHangman test1 = new EvilHangman("test/testDic.txt");
         test1.start();
 
         String output = testOut.toString();
@@ -70,7 +60,7 @@ class EvilHangmanTest {
         String input = "1\n@\n(\n+\na\nb\ne\nt\nl\ns\nr\np\n";
         OutputStream testOut = setupIO(input);
 
-        EvilHangman test1 = new EvilHangman("test/testDic_EH.txt");
+        EvilHangman test1 = new EvilHangman("test/testDic.txt");
         test1.start();
 
         String output = testOut.toString();
