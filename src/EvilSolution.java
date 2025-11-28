@@ -148,11 +148,11 @@ public class EvilSolution {
     }
 
     // ===== CHECK =====
-    private void check(){
-        System.out.println("<Contents of the HashMap>:");
-        for (String key : candidateMap.keySet()) {
-            System.out.println("Key: [" + key + "] => " + candidateMap.get(key));
-        }
-    }
+//    private void check(){
+//        System.out.println("<Contents of the HashMap>:");
+//        for (String key : candidateMap.keySet()) {
+//            System.out.println("Key: [" + key + "] => " + candidateMap.get(key));
+//        }
+//    }
 
 }
